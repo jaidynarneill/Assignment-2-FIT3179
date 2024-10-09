@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+
+  <title>Migration and Income Trends in Australian States</title>
+
+  <style>
+    body {
+      font-family: 'Dubai', sans-serif;
+      text-align: left;
+      background-color: #f5feff;
+    }
+
+    h1 {
+      font-size: 70px;
+      font-weight: bold;
+      align-self: center;
+    }
+
+    .page {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-left: 20px;
+    }
+
+    .vis-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    #choropleth_map {
+      height: 900px;
+      width: 800px;
+      margin-right: 300px;
+    }
+
+    #bar_chart {
+      height: 800px;
+      width: 800px;
+    }
+
+    #sunhurst_diagram {
+      height: 800px;
+      width: 800px;
+      margin-top: 20px;
+      margin-right: 500px;
+    }
+
+    #area_chart {
+      height: 1000px;
+      width: 800px;
+      margin-top: 20px; /* Add margin to separate area chart from the Sunhurst diagram */
+      margin-left: 20px; /* Optional: Add margin to space out from the left */
+    }
+
+    .description {
+      font-size: 30px;
+      margin: 20px 0;
+      margin-left: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page">
+
+    <h1>Migration and Income Trends in Australian States</h1>
+
+    <div class="vis-container">
+      <div id="choropleth_map"></div>
+      <div id="bar_chart"></div>
+    </div>
+    
+    <div class="description">
+      <p><strong>Western Australia has emerged as a significant destination for migrants</strong>, particularly those who have lived in the country for over ten years. This trend highlights the long-term integration of individuals from diverse backgrounds into the region, contributing to its cultural and economic landscape. Notably, a substantial majority of overseas-born residents in Western Australia fall into this category, indicating a strong historical connection to the state.
+
+        The unemployment rate for people born overseas across Australia stands at <strong>5.6%</strong>, which is notably higher than the national average of <strong>4.2%</strong>.<br><br></p>
+
+      <div class="vis-container">
+        <div id="sunhurst_diagram"></div>
+        <div id="area_chart"></div> <!-- New area chart div -->
+      </div>
+    </div>
+
+  </div>
+
+  <script type="text/javascript">
+    var mapSpec = "json/Wk10Map_JaidynArneill.vg.json";
+    vegaEmbed('#choropleth_map', mapSpec).then(function(result) {
+    }).catch(console.error);
+
+    var barChartSpec = "json/Wk10_Stacked_Bar_Chart.vg.json";
+    vegaEmbed('#bar_chart', barChartSpec).then(function(result) {
+    }).catch(console.error);
+    
+    var sunhurstSpec = "json/Wk10_Sunhurst_Diagram.vg.json";
+    vegaEmbed('#sunhurst_diagram', sunhurstSpec).then(function(result) {
+    }).catch(console.error);
+    
+    var areaChartSpec = "json/Wk10_Area_Chart.vg.json"; // New area chart specification
+    vegaEmbed('#area_chart', areaChartSpec).then(function(result) {
+    }).catch(console.error);
+  </script>
+
+</body>
+
+</html>
