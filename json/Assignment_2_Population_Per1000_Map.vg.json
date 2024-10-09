@@ -12,7 +12,7 @@
     "type": "mercator"
   },
   "data": {
-    "url": "https://raw.githubusercontent.com/jaidynarneill/Wk9_Homework_JaidynArneill/refs/heads/main/json/Australian_States_JaidynArneill.json",
+    "url": "https://raw.githubusercontent.com/jaidynarneill/Assignment-2-FIT3179/refs/heads/main/json/Assignment_2_Australian_States_Data.json",
     "format": { "type": "topojson", "feature": "ne_10m_admin_1_states_provinces" }
   },
   "transform": [
@@ -20,7 +20,7 @@
       "lookup": "properties.name",
       "from": {
         "data": {
-          "url": "https://raw.githubusercontent.com/jaidynarneill/Wk9_Homework_JaidynArneill/refs/heads/main/data/Wk9Homework.csv"
+          "url": "https://raw.githubusercontent.com/jaidynarneill/Assignment-2-FIT3179/refs/heads/main/data/Assignment_2_Population_Per1000_Map.csv"
         },
         "key": "States",
         "fields": ["Immigrants Per 1000 People"]
