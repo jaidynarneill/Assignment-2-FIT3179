@@ -1,3 +1,25 @@
-Year,Managers (%),Professionals (%),Technicians and trades workers (%),Community and personal service workers (%),Unemployment rate (%),Employed (%)
-2016,24.7,32.7,30.0,10.9,7.9,92.1
-2021,24.2,33.6,28.4,11.7,5.6,94.4
+YEAR,States,No. born overseas,Population,Immigrants Per 1000 People
+2016,Victoria,"1,675,224","6,068,000",276
+2016,Australian Capital Territory,"104,905","396,100",265
+2016,New South Wales,"2,068,036","7,725,900",268
+2016,Northern Territory,"45,299","244,900",185
+2016,Queensland,"1,013,772","4,844,500",209
+2016,South Australia,"383,277","1,708,200",224
+2016,Tasmania,"61,066","519,100",118
+2016,Western Australia,"796,331","2,617,200",304
+2021,Victoria,1947351,6649159,293
+2021,Australian Capital Territory,130392,432266,302
+2021,New South Wales,2362364,8189266,288
+2021,Northern Territory,50647,246338,206
+2021,Queensland,1167966,5221170,224
+2021,South Australia,427649,1773243,241
+2021,Tasmania,85508,541479,158
+2021,Western Australia,856021,2681633,319
+5 Year Change,Victoria,,,17
+5 Year Change,Australian Capital Territory,,,37
+5 Year Change,New South Wales,,,20
+5 Year Change,Northern Territory,,,21
+5 Year Change,Queensland,,,15
+5 Year Change,South Australia,,,17
+5 Year Change,Tasmania,,,40
+5 Year Change,Western Australia,,,15
