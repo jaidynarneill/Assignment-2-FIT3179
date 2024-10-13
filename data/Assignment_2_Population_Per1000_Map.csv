@@ -1,9 +1,9 @@
-States,No. born overseas,Population,Immigrants Per 1000 People
-Victoria,1947351,6649159,293
-Australian Capital Territory,130392,432266,302
-New South Wales,2362364,8189266,288
-Northern Territory,50647,246338,206
-Queensland,1167966,5221170,224
-South Australia,427649,1773243,241
-Tasmania,85508,541479,158
-Western Australia,856021,2681633,319
+States,No. born overseas,Population,Immigrants Per 1000 (2016),Immigrants Per 1000 (2021),Immigrants Per 1000 (5 Year Change)
+Victoria,"1,675,224","6,068,000",276,293,17
+Australian Capital Territory,"104,905","396,100",265,302,37
+New South Wales,"2,068,036","7,725,900",268,288,20
+Northern Territory,"45,299","244,900",185,206,21
+Queensland,"1,013,772","4,844,500",209,224,15
+South Australia,"383,277","1,708,200",224,241,17
+Tasmania,"61,066","519,100",118,158,40
+Western Australia,"796,331","2,617,200",304,319,15
