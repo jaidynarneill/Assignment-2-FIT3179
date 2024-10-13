@@ -3,12 +3,12 @@
   "title": {
     "text": "How Migrant Income is Changing",
     "font": "Dubai",
-    "dy":-30,
-    "fontSize": 40
+    "dy":-15,
+    "fontSize": 30
   },
   "background": "#f5feff",
-  "width": 980,
-  "height": 700,
+  "width": 577,
+  "height": 350,
   "data": {
     "values": [
       {"Code": 4, "Label": "South Australia", "Year": 2016, "Under $500 per week": 51.9, "$3000 or more per week (%)": 1.9, "Category": "Under $500"},
@@ -37,9 +37,9 @@
           "axis": {
             "title": "Year",
             "labelFont": "Dubai",
-            "labelFontSize": 26,
+            "labelFontSize": 16,
             "titleFont": "Dubai",
-            "titleFontSize": 34,
+            "titleFontSize": 22,
             "ticks": true,
             "tickCount": 4,
             "labelPadding": 10,
@@ -56,12 +56,12 @@
           "axis": {
             "title": "% of Migrants",
             "labelFont": "Dubai",
-            "labelFontSize": 26,
+            "labelFontSize": 16,
             "titleFont": "Dubai",
-            "titleFontSize": 34,
+            "titleFontSize": 22,
             "labelPadding":20,
             "tickMinStep":5,
-            "titleX": -110            
+            "titleX": -50            
           }
         },
         "color": {
@@ -72,8 +72,8 @@
           },
           "legend": {
             "title": "Income Per Week",
-            "labelFontSize": 30,
-            "titleFontSize": 34,
+            "labelFontSize": 16,
+            "titleFontSize": 22,
             "titleFont": "Dubai",
             "labelFont": "Dubai",
             "labelLimit": 1000,
@@ -278,9 +278,9 @@
       "mark": {
         "type": "text",
         "font": "Dubai",
-        "fontSize":30,
+        "fontSize":20,
         "fontWeight":"bold",
-        "dy": -310
+        "dy": -160
       },
       "transform": [
         {
@@ -304,9 +304,9 @@
       "mark": {
         "type": "text",
         "font": "Dubai",
-        "fontSize":30,
+        "fontSize":20,
         "fontWeight":"bold",
-        "dy": -170
+        "dy": -82.5
       },
       "transform": [
         {
@@ -330,9 +330,9 @@
       "mark": {
         "type": "text",
         "font": "Dubai",
-        "fontSize":30,
+        "fontSize":20,
         "fontWeight":"bold",
-        "dy": 0
+        "dy": 5
       },
       "transform": [
         {

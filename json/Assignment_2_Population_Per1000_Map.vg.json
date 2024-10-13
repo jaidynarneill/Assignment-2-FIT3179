@@ -3,12 +3,12 @@
   "title": {
     "text": "Where Migrants are Situated",
     "font": "Dubai",
-    "fontSize": 40,
+    "fontSize": 30,
     "fontWeight": "bold",
     "dy": -30
   },
-  "width": 850,
-  "height": 700,
+  "width": 425,
+  "height": 350,
   "background": "#f5feff",
   "projection": {
     "type": "mercator"
@@ -56,12 +56,12 @@
           "legend": {
             "title": "Migrants Per 1000 People",
             "titleFont": "Dubai",
-            "titleFontSize": 34,
+            "titleFontSize": 22,
             "labelFont": "Dubai",
-            "labelFontSize": 30,
+            "labelFontSize": 16,
             "orient": "bottom-left",
-            "gradientLength": 500,
-            "gradientThickness": 30,
+            "gradientLength": 250,
+            "gradientThickness": 15,
             "values": [150, 200, 250, 300],
             "titleLimit": 1000,
             "labelLimit": 200,

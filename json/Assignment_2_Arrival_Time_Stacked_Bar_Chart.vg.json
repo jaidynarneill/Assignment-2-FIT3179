@@ -1,14 +1,14 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Migrant Arrival Time per State",
+    "text": "Migrant Arrival Time Per State",
     "font": "Dubai",
     "fontWeight": "bold",
-    "fontSize": 40,
+    "fontSize": 30,
     "dy": -30
   },
-  "width": 850,
-  "height": 650,
+  "width": 500,
+  "height": 375,
   "data": {
     "url": "https://raw.githubusercontent.com/jaidynarneill/Assignment-2-FIT3179/refs/heads/main/data/Assignment_2_Arrival_Time_Stacked_Bar_Chart.csv"
   },
@@ -55,11 +55,11 @@
             "title": "% of Migrants",
             "format": ".0%",
             "labelFont": "Dubai",
-            "labelFontSize": 26,
+            "labelFontSize": 16,
             "tickMinStep": 0.2,
             "titleFont": "Dubai",
-            "titleFontSize": 34,
-            "titleY": 60,
+            "titleFontSize": 22,
+            "titleY": 30,
             "grid": false
           }
         },
@@ -69,10 +69,10 @@
           "axis": {
             "title": "State",
             "labelFont": "Dubai",
-            "titleX":-227.5,
-            "labelFontSize": 26,
+            "titleX":-130,
+            "labelFontSize": 16,
             "titleFont": "Dubai",
-            "titleFontSize": 34,
+            "titleFontSize": 22,
             "labelLimit": 1000,
             "grid": false
           }
@@ -92,9 +92,9 @@
           "legend": {
             "title": "Arrival Time",
             "titleFont": "Dubai",
-            "titleFontSize": 34,
+            "titleFontSize": 22,
             "labelFont": "Dubai",
-            "labelFontSize": 30,
+            "labelFontSize": 16,
             "labelLimit": 1000,
             "symbolSize":350,
             "symbolStrokeColor":"black",
@@ -131,9 +131,9 @@
         "type": "text",
         "color": "white",
         "font": "Dubai",
-        "fontSize": 26,
+        "fontSize": 18,
         "fontWeight": "bold",
-        "xOffset": -40
+        "xOffset": -25
       },
       "transform": [
         {
@@ -161,9 +161,9 @@
         "type": "text",
         "color": "black",
         "font": "Dubai",
-        "fontSize": 26,
+        "fontSize": 18,
         "fontWeight": "bold",
-        "xOffset": -400
+        "xOffset": -250
       },
       "transform": [
         {
@@ -191,9 +191,9 @@
         "type": "text",
         "color": "black",
         "font": "Dubai",
-        "fontSize": 26,
+        "fontSize": 18,
         "fontWeight": "bold",
-        "xOffset": -770
+        "xOffset": -450
       },
       "transform": [
         {

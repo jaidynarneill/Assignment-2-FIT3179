@@ -4,11 +4,11 @@
     "text": "How Migrants are Employed",
     "font": "Dubai",
     "fontWeight": "bold",
-    "fontSize": 40,
-    "dy": -30
+    "fontSize": 30,
+    "dy": -47.5
   },
-  "width": 50,
-  "height": 400,
+  "width": 0,
+  "height": 200,
   "layer": [
     {
       "data": {
@@ -24,7 +24,7 @@
       "mark": {
         "type": "arc",
         "innerRadius": 0,
-        "outerRadius": 250,
+        "outerRadius": 125,
         "stroke": "white",
         "strokeWidth": 1
       },
@@ -63,8 +63,8 @@
       ],
       "mark": {
         "type": "arc",
-        "innerRadius": 250,
-        "outerRadius": 325,
+        "innerRadius": 125,
+        "outerRadius": 162.5,
         "stroke": "white",
         "strokeWidth": 1
       },
@@ -111,8 +111,8 @@
         "type": "text",
         "font": "Dubai",
         "fontStyle": "bold",
-        "fontSize": 34,
-        "dy": 75,
+        "fontSize": 22,
+        "dy": 35,
         "dx": 0
       },
       "encoding": {
@@ -137,18 +137,19 @@
   "config": {
     "background": "#f5feff",
     "legend": {
-      "labelFontSize": 26,
-      "titleFontSize": 30,
+      "labelFontSize": 16,
+      "titleFontSize": 20,
       "rowPadding": 15,
       "titleLimit": 1000,
       "labelLimit": 1000,
       "orient": "none",
-      "legendY": 385,
-      "legendX": -550,
+      "legendY": 0,
+      "legendX": -235,
       "symbolSize": 375,
       "symbolStrokeColor": "black",
       "symbolStrokeWidth": 4,
-      "labelFont": "Dubai"
+      "labelFont": "Dubai",
+      "titleFontWeight":"bold"
     }
   },
   "params": [
