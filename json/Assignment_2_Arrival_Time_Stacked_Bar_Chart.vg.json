@@ -7,7 +7,7 @@
     "fontSize": 40,
     "dy": -30
   },
-  "width": 980,
+  "width": 850,
   "height": 650,
   "data": {
     "url": "https://raw.githubusercontent.com/jaidynarneill/Assignment-2-FIT3179/refs/heads/main/data/Assignment_2_Arrival_Time_Stacked_Bar_Chart.csv"
@@ -163,7 +163,7 @@
         "font": "Dubai",
         "fontSize": 26,
         "fontWeight": "bold",
-        "xOffset": -480
+        "xOffset": -400
       },
       "transform": [
         {
@@ -193,7 +193,7 @@
         "font": "Dubai",
         "fontSize": 26,
         "fontWeight": "bold",
-        "xOffset": -890
+        "xOffset": -770
       },
       "transform": [
         {
