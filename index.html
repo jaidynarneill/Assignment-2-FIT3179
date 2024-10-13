@@ -80,6 +80,7 @@
       justify-content: space-between;
       align-items: flex-start;
       width: 100%;
+      margin-bottom: 2lvw;
     }
 
     #choropleth_map {
@@ -119,7 +120,7 @@
 
     /* Footer section for source and author */
     .footer {
-      font-size: 1vw;
+      font-size: 1.5vw;
       color: #666;
       text-align: center;
     }
@@ -160,15 +161,37 @@
       <div id="sunhurst_diagram"></div>
     </div>
 
+     <!-- Floating annotation for bar chart with arrow -->
+     <div class="annotation" style="position: absolute; top: 43%; left: 8%; background-color: rgba(255, 255, 255, 0.9); padding: 1vw; border: 2px solid black; box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);width: 9%; z-index: 2;">
+      <p style="font-size: 1.2vw; margin: 0;"> Western Australia persists as the most<strong> migrant dense</strong> state.</p>
+      <!-- Arrow pointing downwards -->
+      <!-- Arrow tail (line) -->
+      <div class="arrow-tail" style="position: absolute; top: 102%; left: 99%; width: 4px; height: 40%; background-color: #ffffff;"></div>
+
+      <!-- Arrow head (triangle) -->
+      <div class="arrow-head" style="position: absolute; top: calc(100% + 40%); left: calc(100% - 5px); width: 0; height: 0; border-left: 5px solid transparent; border-right: 7px solid transparent; border-top: 30px solid #ffffff;"></div>
+
+      <!-- Second Annotation with arrow -->
+      <div class="annotation" style="position: absolute; top: 380%; left: 542%; padding: 0.5lvw; width: 200%; line-height: 1.55; z-index: 1; background-color: rgba(255, 255, 255, 0.8); border: 2px solid black; box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);">
+        <p style="font-size: 1.3vw; margin: 0;"><strong>Community Workers </strong>are increasing while <strong> private sector jobs </strong>are decreasing.</p>
+
+        <!-- Arrow tail for the second annotation -->
+<div class="arrow-tail" style="position: absolute; top: -50%; left: 33%; width: 3px; height: 50%; background-color: black;"></div>
+<div class="arrow-head" style="position: absolute; top: -58%; left: calc(33% - 3.5px); width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-bottom: 10px solid black;"></div>
+      </div>
+    </div>
+
     <!-- Separator line after map and sunburst section -->
     <div class="separator"></div>
 
-    <!-- Bar chart with overlaying text to the right -->
     <div class="vis-container" style="position: relative;">
       <div id="bar_chart"></div>
-      <div class="arrival-text" style="position: absolute; top: 40.9%; left: 65.85%; width: 30%;line-height: 1.55; z-index: 1;">
+      
+     
+      
+      <div class="arrival-text" style="position: absolute; top: 42.9%; left: 65.85%; width: 29%;line-height: 1.55; z-index: 1;">
         <p style="font-size: 2.2vw; margin: 0;"><strong>Recent Migrant Arrivals</strong></p>
-        <p style="font-size: 1.3vw; margin: 0;">Over the 2016 to 2021 period, the <strong>average time spent in Australia by migrants is decreasing</strong>. <strong>Western Australia</strong> also has a higher proportion of individuals who arrived within the last decade compared to other states.</p>
+        <p style="font-size: 1.3vw; margin: 0;">Over the 2016 to 2021 period, the <strong>average time spent in Australia by migrants is decreasing</strong>. <strong>Western Australia</strong> also has a higher proportion of individuals who arrived over a decade ago.</p>
       </div>
     </div>
 
@@ -178,9 +201,9 @@
     <!-- Area chart at the bottom with new class -->
     <div class="area-vis-container">
       <div id="area_chart"></div>
-      <div class="income-text" style="position: absolute; top: 268.9%; left: 62.7%; line-height:1.55;width: 25%; z-index: 1;">
+      <div class="income-text" style="position: absolute; top: 273.75%; left: 62.7%; line-height:1.55;width: 24%; z-index: 1;">
           <p style="font-size: 2.2vw; margin: 0;"><strong>Better Income</strong></p>
-          <p style="font-size: 1.3vw; margin: 0;">Income across different states in Australia has shown <strong>significant changes for the better.</strong> Migrants who have been in Australia for longer periods tend to fall within higher income brackets, <strong>with South Australia leading</strong> in median income levels for long-term residents.</p>
+          <p style="font-size: 1.3vw; margin: 0;">Income across different states in Australia has shown <strong>significant changes for the better.</strong> Migrants who have been in Australia for longer periods tend to fall within higher income brackets, <strong>with South Australia leading</strong> in income levels.</p>
       </div>
     </div>
 

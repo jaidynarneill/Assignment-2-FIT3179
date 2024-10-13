@@ -5,7 +5,8 @@
     "font": "Dubai",
     "fontWeight": "bold",
     "fontSize": 30,
-    "dy": -47.5
+    "dy": -47.5,
+    "dx":-25
   },
   "width": 0,
   "height": 200,

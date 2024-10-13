@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Migrant Arrival Time Per State",
+    "text": "Migrant Time Spent in Australia",
     "font": "Dubai",
     "fontWeight": "bold",
     "fontSize": 30,
