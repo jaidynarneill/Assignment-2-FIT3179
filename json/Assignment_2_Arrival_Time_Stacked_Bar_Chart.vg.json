@@ -7,7 +7,7 @@
     "fontSize": 40,
     "dy": -30
   },
-  "width": 1000,
+  "width": 980,
   "height": 650,
   "data": {
     "url": "https://raw.githubusercontent.com/jaidynarneill/Assignment-2-FIT3179/refs/heads/main/data/Assignment_2_Arrival_Time_Stacked_Bar_Chart.csv"
@@ -15,10 +15,10 @@
   "transform": [
     {
       "fold": [
-        "Arrived 5-10 years ago (%)",
-        "Arrival not stated (%)",
-        "Arrived over 10 years ago (%)",
-        "Arrived within 5 years (%)"
+        "Arrived 5-10 years ago",
+        "Arrival not stated",
+        "Arrived over 10 years ago",
+        "Arrived within 5 years"
       ],
       "as": ["Arrival Type", "percentage"]
     },
@@ -56,8 +56,11 @@
             "format": ".0%",
             "labelFont": "Dubai",
             "labelFontSize": 26,
+            "tickMinStep": 0.2,
             "titleFont": "Dubai",
-            "titleFontSize": 34
+            "titleFontSize": 34,
+            "titleY": 60,
+            "grid": false
           }
         },
         "y": {
@@ -66,10 +69,12 @@
           "axis": {
             "title": "State",
             "labelFont": "Dubai",
+            "titleX":-227.5,
             "labelFontSize": 26,
             "titleFont": "Dubai",
             "titleFontSize": 34,
-            "labelLimit": 1000
+            "labelLimit": 1000,
+            "grid": false
           }
         },
         "color": {
@@ -77,10 +82,10 @@
           "type": "nominal",
           "scale": {
             "domain": [
-              "Arrived within 5 years (%)",
-              "Arrived 5-10 years ago (%)",
-              "Arrived over 10 years ago (%)",
-              "Arrival not stated (%)"
+              "Arrived within 5 years",
+              "Arrived 5-10 years ago",
+              "Arrived over 10 years ago",
+              "Arrival not stated"
             ],
             "range": ["#7b3294", "#d9d9d9", "#c2a5cf", "#000000"]
           },
@@ -90,25 +95,33 @@
             "titleFontSize": 34,
             "labelFont": "Dubai",
             "labelFontSize": 30,
-            "labelLimit": 1000
+            "labelLimit": 1000,
+            "symbolSize":350,
+            "symbolStrokeColor":"black",
+            "symbolStrokeWidth":3.5
           }
         },
         "tooltip": [
+          {
+            "field": "Year",
+            "type": "quantitative",
+            "title": "Year"
+          },
           {
             "field": "Label",
             "type": "nominal",
             "title": "State"
           },
           {
-            "field": "percentage",
-            "type": "quantitative",
-            "title": "Percentage",
-            "format": ".2f"
-          },
-          {
             "field": "Arrival Type",
             "type": "nominal",
             "title": "Arrival Type"
+          },
+          {
+            "field": "percentage",
+            "type": "quantitative",
+            "title": "% Arrived During Time",
+            "format": ".1f"
           }
         ]
       }
@@ -124,7 +137,7 @@
       },
       "transform": [
         {
-          "filter": "datum['Arrival Type'] == 'Arrived within 5 years (%)'"
+          "filter": "datum['Arrival Type'] == 'Arrived within 5 years'"
         }
       ],
       "encoding": {
@@ -154,7 +167,7 @@
       },
       "transform": [
         {
-          "filter": "datum['Arrival Type'] == 'Arrived over 10 years ago (%)'"
+          "filter": "datum['Arrival Type'] == 'Arrived over 10 years ago'"
         }
       ],
       "encoding": {
@@ -180,11 +193,11 @@
         "font": "Dubai",
         "fontSize": 26,
         "fontWeight": "bold",
-        "xOffset": -900
+        "xOffset": -890
       },
       "transform": [
         {
-          "filter": "datum['Arrival Type'] == 'Arrived 5-10 years ago (%)'"
+          "filter": "datum['Arrival Type'] == 'Arrived 5-10 years ago'"
         }
       ],
       "encoding": {

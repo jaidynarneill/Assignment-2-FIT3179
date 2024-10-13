@@ -1,0 +1,117 @@
+<style>
+  /* Overall lighter purple background */
+  body {
+    background-color: #d1c4e9;
+    font-family: 'Dubai', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Middle light blue stripe with a black border */
+  .container {
+    background-color: #f5feff;
+    width: 80vw;
+    padding: 2vw;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black; /* Add this line for the black border */
+  }
+
+  /* Title banner with Proxima Nova font */
+  .title-banner {
+    width: 100%;
+    background-color: #fff;
+    padding: 2vw 0;
+    margin-bottom: 3vw;
+    text-align: center;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .title-banner h1 {
+    font-size: 4vw;
+    font-family: 'Tahoma', sans-serif;
+    color: #000000;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  /* Content styling within the blue stripe */
+  .vis-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 3vw;
+  }
+
+  /* Map and sunburst diagram */
+  .map-and-sunburst {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  #choropleth_map {
+    width: 50%;
+    height: 40%;
+  }
+
+  #sunhurst_diagram {
+    width: 50%;
+    height: 40%;
+  }
+
+  /* Text overlay for the bar chart */
+  .arrival-text {
+    padding: 1vw;
+    font: "Dubai";
+    font-size: xx-large;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+    max-height: max-content;
+  }
+
+  /* Footer section for source and author */
+  .footer {
+    font-size: 1vw;
+    color: #666;
+    text-align: center;
+  }
+
+  /* Expanded bar chart */
+  #bar_chart {
+    height: 700px;
+    width: 60%;
+  }
+
+  /* Ensure spacing below the area chart */
+  #area_chart {
+    width: 50%;
+    height: fit-content;
+  }
+
+  /* Styling for horizontal lines */
+  .separator {
+    width: 95%;
+    height: 2px;
+    background-color: black; /* Change this line to make separators black */
+    margin: 3vw auto;
+  }
+
+  /* Positioned text boxes for better control */
+  .income-text {
+    position: absolute;
+    left: 34%;
+    top: 15%; /* Adjust the top position as needed */
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 2vw;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+</style>

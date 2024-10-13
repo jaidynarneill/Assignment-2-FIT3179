@@ -7,7 +7,7 @@
     "fontSize": 40
   },
   "background": "#f5feff",
-  "width": 1000,
+  "width": 1080,
   "height": 700,
   "data": {
     "values": [
@@ -61,7 +61,7 @@
             "titleFontSize": 34,
             "labelPadding":20,
             "tickMinStep":5,
-            "titleX": -100
+            "titleX": -110            
           }
         },
         "color": {
@@ -84,7 +84,12 @@
             "symbolStrokeWidth":5,
             "symbolSize":500
           }
-        }
+        },
+        "tooltip": [
+          {"field": "Label", "title": "State"},
+          {"field": "Year", "title": "Year"},
+          {"field": "Under $500 per week", "title": "Under $500 (%)"}
+        ]
       }
     },
     {
@@ -136,7 +141,12 @@
         },
         "color": {
           "value": "#BA68C8"
-        }
+        },
+        "tooltip": [
+          {"field": "Label", "title": "State"},
+          {"field": "Year", "title": "Year"},
+          {"field": "$3000 or more per week (%)", "title": "Migrants on $3000+ (%)"}
+        ]
       }
     },
     {

@@ -24,7 +24,7 @@
       align-items: center;
     }
 
-    /* Middle light blue stripe */
+    /* Middle light blue stripe with a black border */
     .container {
       background-color: #f5feff;
       width: 80vw;
@@ -33,9 +33,10 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      border: 2px solid black;
     }
 
-    /* Title banner with Proxima Nova font */
+    /* Title banner with a black border */
     .title-banner {
       width: 100%;
       background-color: #fff;
@@ -43,6 +44,7 @@
       margin-bottom: 3vw;
       text-align: center;
       box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+      border: 2px solid black;
     }
 
     .title-banner h1 {
@@ -56,11 +58,19 @@
     /* Content styling within the blue stripe */
     .vis-container {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
+      justify-content: space-between;
+      align-items: flex-start;
       width: 100%;
-      margin-bottom: 3vw;
+      margin-bottom: 5vw;
+    }
+
+    /* New styling for the area chart */
+    .area-vis-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 100%;
+      height: 80%;
     }
 
     /* Map and sunburst diagram */
@@ -77,49 +87,58 @@
     }
 
     #sunhurst_diagram {
-      width: 53%;
+      width: 50%;
       height: 40%;
     }
 
     /* Text overlay for the bar chart */
-    .extra-text {
-      position: absolute;
-      width: 40%;
-      padding: 2vw;
+    .arrival-text {
+      padding: 1vw;
+      font: "Dubai";
+      font-size: xx-large;
       background-color: rgba(255, 255, 255, 0.8);
-      z-index: 1;
       box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+      max-height: max-content;
+      border: 2px solid black;
     }
-
-   
 
     /* Footer section for source and author */
     .footer {
       font-size: 1vw;
       color: #666;
       text-align: center;
-      margin-top: 3vw;
     }
 
     /* Expanded bar chart */
     #bar_chart {
-      height: 800px;
-      width: 100%;
-      
+      height: 700px;
+      width: 60%;
     }
 
     /* Ensure spacing below the area chart */
     #area_chart {
-      margin-bottom: 4vw;
-      padding: 2vw; /* Added padding for more space */
+      width: 50%;
+      height: fit-content;
     }
 
     /* Styling for horizontal lines */
     .separator {
       width: 95%;
       height: 2px;
-      background-color: #999;
+      background-color: black;
       margin: 3vw auto;
+    }
+
+    /* Positioned text boxes for better control */
+    .income-text {
+      position: absolute;
+      left: 34%;
+      top: 15%;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 2vw;
+      box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      border: 2px solid black;
     }
   </style>
 </head>
@@ -143,25 +162,25 @@
     <!-- Separator line after map and sunburst section -->
     <div class="separator"></div>
 
-    <!-- Bar chart with overlaying text -->
-    <div class="vis-container">
-      <div id="bar_chart"></div> <!-- Stacked bar chart -->
-      <div class="extra-text">
-        <p><strong>Breakdown of Recent Migrant Arrivals</strong><br>The chart shows the distribution of migrants by state who have arrived within different timeframes, offering insights into migration trends over recent years. Western Australia, for instance, has a higher proportion of individuals who arrived within the last decade compared to other states.</p>
+    <!-- Bar chart with overlaying text to the right -->
+    <div class="vis-container" style="position: relative;">
+      <div id="bar_chart"></div>
+      <div class="arrival-text" style="position: absolute; top: 39.5%; left: 65%; width: 30%; z-index: 1;">
+        <p style="font-size: xxx-large; margin: 0;"><strong>Recent Migrant Arrivals</strong></p>
+        <p style="font-size: xx-large; margin: 0;">Over the 2016 to 2021 period, the <strong>average time spent in Australia by migrants is decreasing</strong>. <strong>Western Australia</strong> also has a higher proportion of individuals who arrived within the last decade compared to other states.</p>
       </div>
     </div>
 
     <!-- Separator line after bar chart section -->
     <div class="separator"></div>
 
-    <!-- Area chart at the bottom, full width -->
-    <div class="vis-container">
+    <!-- Area chart at the bottom with new class -->
+    <div class="area-vis-container">
       <div id="area_chart"></div>
-    </div>
-
-    <!-- Body text to the right of the area chart -->
-    <div class="extra-text">
-      <p><strong>Income Distribution Trends</strong><br>Over the years, income distribution across different states in Australia has shown significant changes. Migrants who have been in Australia for longer periods tend to fall within higher income brackets, with Western Australia and New South Wales leading in median income levels for long-term residents.</p>
+      <div class="income-text" style="position: absolute; top: 219%; left: 61.5%; width: 22.5%; z-index: 1;">
+        <p style="font-size: xxx-large; margin: 0;"><strong>Better Income</strong></p>
+        <p style="font-size: xx-large; margin: 0;">Income across different states in Australia has shown <strong>significant changes for the better.</strong> Migrants who have been in Australia for longer periods tend to fall within higher income brackets, <strong>with South Australia leading</strong> in median income levels for long-term residents.</p>
+      </div>
     </div>
 
     <!-- Separator line after area chart section -->
