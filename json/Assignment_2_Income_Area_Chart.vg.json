@@ -3,10 +3,11 @@
   "title": {
     "text": "How Migrant Income is Changing",
     "font": "Dubai",
+    "dy":-30,
     "fontSize": 40
   },
   "background": "#f5feff",
-  "width": 800,
+  "width": 1000,
   "height": 700,
   "data": {
     "values": [
@@ -38,7 +39,7 @@
             "labelFont": "Dubai",
             "labelFontSize": 26,
             "titleFont": "Dubai",
-            "titleFontSize": 30,
+            "titleFontSize": 34,
             "ticks": true,
             "tickCount": 4,
             "labelPadding": 10,
@@ -53,30 +54,35 @@
             "domain": [0, 52] 
           },
           "axis": {
-            "title": "% of Overseas People",
+            "title": "% of Migrants",
             "labelFont": "Dubai",
             "labelFontSize": 26,
             "titleFont": "Dubai",
-            "titleFontSize": 40,
-            "labelPadding": 20
+            "titleFontSize": 34,
+            "labelPadding":20,
+            "tickMinStep":5,
+            "titleX": -100
           }
         },
         "color": {
           "field": "Category",
           "scale": {
             "domain": ["Under $500", "$3000 or more"],
-            "range": ["#CF9FFF", "#BA68C8"]
+            "range": ["#CF9FFA", "#BA68C8"]
           },
           "legend": {
-            "title": "Income",
+            "title": "Income Per Week",
             "labelFontSize": 30,
-            "titleFontSize": 35,
+            "titleFontSize": 34,
+            "titleFont": "Dubai",
+            "labelFont": "Dubai",
+            "labelLimit": 1000,
             "rowPadding": 15,
             "titleLimit":1000,
-            "labelLimit":1000,
     
             "symbolStrokeColor":"black",
-            "symbolStrokeWidth":2.5
+            "symbolStrokeWidth":5,
+            "symbolSize":500
           }
         }
       }
@@ -262,8 +268,9 @@
       "mark": {
         "type": "text",
         "font": "Dubai",
-        "fontSize": 35,
-        "dy": -320
+        "fontSize":30,
+        "fontWeight":"bold",
+        "dy": -310
       },
       "transform": [
         {
@@ -287,8 +294,9 @@
       "mark": {
         "type": "text",
         "font": "Dubai",
-        "fontSize": 40,
-        "dy": -160
+        "fontSize":30,
+        "fontWeight":"bold",
+        "dy": -170
       },
       "transform": [
         {
@@ -312,7 +320,8 @@
       "mark": {
         "type": "text",
         "font": "Dubai",
-        "fontSize": 35,
+        "fontSize":30,
+        "fontWeight":"bold",
         "dy": 0
       },
       "transform": [

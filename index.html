@@ -10,108 +10,186 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
 
-  <title>Migration and Income Trends in Australian States</title>
+  <title>Migrant Trends In Australia</title>
 
   <style>
+    /* Overall lighter purple background */
     body {
+      background-color: #d1c4e9;
       font-family: 'Dubai', sans-serif;
-      text-align: left;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Middle light blue stripe */
+    .container {
       background-color: #f5feff;
-    }
-
-    h1 {
-      font-size: 70px;
-      font-weight: bold;
-      align-self: center;
-    }
-
-    .page {
+      width: 80vw;
+      padding: 2vw;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      margin-left: 20px;
+      align-items: center;
     }
 
+    /* Title banner with Proxima Nova font */
+    .title-banner {
+      width: 100%;
+      background-color: #fff;
+      padding: 2vw 0;
+      margin-bottom: 3vw;
+      text-align: center;
+      box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .title-banner h1 {
+      font-size: 4vw;
+      font-family: 'Tahoma', sans-serif;
+      color: #000000;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    /* Content styling within the blue stripe */
     .vis-container {
       display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 100%;
+      margin-bottom: 3vw;
+    }
+
+    /* Map and sunburst diagram */
+    .map-and-sunburst {
+      display: flex;
+      justify-content: space-between;
       align-items: flex-start;
       width: 100%;
     }
 
     #choropleth_map {
-      height: 900px;
-      width: 800px;
-      margin-right: 300px;
-    }
-
-    #bar_chart {
-      height: 800px;
-      width: 800px;
+      width: 50%;
+      height: 40%;
     }
 
     #sunhurst_diagram {
+      width: 53%;
+      height: 40%;
+    }
+
+    /* Text overlay for the bar chart */
+    .extra-text {
+      position: absolute;
+      width: 40%;
+      padding: 2vw;
+      background-color: rgba(255, 255, 255, 0.8);
+      z-index: 1;
+      box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+   
+
+    /* Footer section for source and author */
+    .footer {
+      font-size: 1vw;
+      color: #666;
+      text-align: center;
+      margin-top: 3vw;
+    }
+
+    /* Expanded bar chart */
+    #bar_chart {
       height: 800px;
-      width: 800px;
-      margin-top: 20px;
-      margin-right: 500px;
+      width: 100%;
+      
     }
 
+    /* Ensure spacing below the area chart */
     #area_chart {
-      height: 1000px;
-      width: 800px;
-      margin-top: 20px; /* Add margin to separate area chart from the Sunhurst diagram */
-      margin-left: 20px; /* Optional: Add margin to space out from the left */
+      margin-bottom: 4vw;
+      padding: 2vw; /* Added padding for more space */
     }
 
-    .description {
-      font-size: 30px;
-      margin: 20px 0;
-      margin-left: 20px;
+    /* Styling for horizontal lines */
+    .separator {
+      width: 95%;
+      height: 2px;
+      background-color: #999;
+      margin: 3vw auto;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="page">
+  <!-- Light blue middle stripe container -->
+  <div class="container">
 
-    <h1>Migration and Income Trends in Australian States</h1>
-
-    <div class="vis-container">
-      <div id="choropleth_map"></div>
-      <div id="bar_chart"></div>
+    <!-- Title banner -->
+    <div class="title-banner">
+      <h1>Migrant Trends In Australia</h1>
     </div>
-    
-    <div class="description">
-      <p><strong>Western Australia has emerged as a significant destination for migrants</strong>, particularly those who have lived in the country for over ten years. This trend highlights the long-term integration of individuals from diverse backgrounds into the region, contributing to its cultural and economic landscape. Notably, a substantial majority of overseas-born residents in Western Australia fall into this category, indicating a strong historical connection to the state.
 
-        The unemployment rate for people born overseas across Australia stands at <strong>5.6%</strong>, which is notably higher than the national average of <strong>4.2%</strong>.<br><br></p>
+    <!-- Map and sunburst diagram side by side -->
+    <div class="map-and-sunburst">
+      <div id="choropleth_map"></div>
+      <div id="sunhurst_diagram"></div>
+    </div>
 
-      <div class="vis-container">
-        <div id="sunhurst_diagram"></div>
-        <div id="area_chart"></div> <!-- New area chart div -->
+    <!-- Separator line after map and sunburst section -->
+    <div class="separator"></div>
+
+    <!-- Bar chart with overlaying text -->
+    <div class="vis-container">
+      <div id="bar_chart"></div> <!-- Stacked bar chart -->
+      <div class="extra-text">
+        <p><strong>Breakdown of Recent Migrant Arrivals</strong><br>The chart shows the distribution of migrants by state who have arrived within different timeframes, offering insights into migration trends over recent years. Western Australia, for instance, has a higher proportion of individuals who arrived within the last decade compared to other states.</p>
       </div>
+    </div>
+
+    <!-- Separator line after bar chart section -->
+    <div class="separator"></div>
+
+    <!-- Area chart at the bottom, full width -->
+    <div class="vis-container">
+      <div id="area_chart"></div>
+    </div>
+
+    <!-- Body text to the right of the area chart -->
+    <div class="extra-text">
+      <p><strong>Income Distribution Trends</strong><br>Over the years, income distribution across different states in Australia has shown significant changes. Migrants who have been in Australia for longer periods tend to fall within higher income brackets, with Western Australia and New South Wales leading in median income levels for long-term residents.</p>
+    </div>
+
+    <!-- Separator line after area chart section -->
+    <div class="separator"></div>
+
+    <!-- Footer for data source and author -->
+    <div class="footer">
+      <p>Data source: <a href="https://dbr.abs.gov.au/index.html" target="_blank">https://dbr.abs.gov.au/index.html</a></p>
+      <p>Author: Jaidyn Arneill</p>
     </div>
 
   </div>
 
   <script type="text/javascript">
     var mapSpec = "json/Assignment_2_Population_Per1000_Map.vg.json";
-    vegaEmbed('#choropleth_map', mapSpec).then(function(result) {
+    vegaEmbed('#choropleth_map', mapSpec, {"actions": false}).then(function(result) {
     }).catch(console.error);
 
     var barChartSpec = "json/Assignment_2_Arrival_Time_Stacked_Bar_Chart.vg.json";
-    vegaEmbed('#bar_chart', barChartSpec).then(function(result) {
+    vegaEmbed('#bar_chart', barChartSpec, {"actions": false}).then(function(result) {
     }).catch(console.error);
     
     var sunhurstSpec = "json/Assignment_2_Work_Categories_Sunhurst_Diagram.vg.json";
-    vegaEmbed('#sunhurst_diagram', sunhurstSpec).then(function(result) {
+    vegaEmbed('#sunhurst_diagram', sunhurstSpec, {"actions": false}).then(function(result) {
     }).catch(console.error);
     
-    var areaChartSpec = "json/Assignment_2_Income_Area_Chart.vg.json"; // New area chart specification
-    vegaEmbed('#area_chart', areaChartSpec).then(function(result) {
+    var areaChartSpec = "json/Assignment_2_Income_Area_Chart.vg.json";
+    vegaEmbed('#area_chart', areaChartSpec, {"actions": false}).then(function(result) {
     }).catch(console.error);
   </script>
 

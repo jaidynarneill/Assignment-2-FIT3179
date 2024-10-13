@@ -1,27 +1,17 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Migrate Arrival Time per State",
+    "text": "Migrant Arrival Time per State",
     "font": "Dubai",
     "fontWeight": "bold",
-    "fontSize": 40
+    "fontSize": 40,
+    "dy": -30
   },
-  "width": 800,
-  "height": 700,
+  "width": 1000,
+  "height": 650,
   "data": {
     "url": "https://raw.githubusercontent.com/jaidynarneill/Assignment-2-FIT3179/refs/heads/main/data/Assignment_2_Arrival_Time_Stacked_Bar_Chart.csv"
   },
-  "params": [
-    {
-      "name": "stateSelection",
-      "bind": {
-        "input": "select",
-        "options": [null, "Western Australia", "New South Wales", "Victoria", "Queensland", "South Australia", "Tasmania", "Northern Territory", "Australian Capital Territory"],
-        "name": "Select State: "
-      },
-      "value": null
-    }
-  ],
   "transform": [
     {
       "fold": [
@@ -33,7 +23,24 @@
       "as": ["Arrival Type", "percentage"]
     },
     {
-      "filter": "stateSelection == null || datum.Label == stateSelection"
+      "filter": "datum.Year == year_selection"
+    },
+    {
+      "calculate": "format(datum.percentage, '.0f') + '%'",
+      "as": "percentage_text"
+    }
+  ],
+  "params": [
+    {
+      "name": "year_selection",
+      "value": 2021,
+      "bind": {
+        "input": "range",
+        "min": 2016,
+        "max": 2021,
+        "step": 5,
+        "name": "Year: "
+      }
     }
   ],
   "layer": [
@@ -45,29 +52,24 @@
           "type": "quantitative",
           "stack": "normalize",
           "axis": {
-            "title": "Total Percentage of Immigrants",
+            "title": "% of Migrants",
             "format": ".0%",
             "labelFont": "Dubai",
+            "labelFontSize": 26,
             "titleFont": "Dubai",
-            "labelFontSize": 24,
-            "titleFontSize": 50
+            "titleFontSize": 34
           }
         },
         "y": {
           "field": "Label",
           "type": "nominal",
-          "sort": [
-            "Arrived within 5 years (%)",
-            "Arrived over 10 years ago (%)",
-            "Arrived 5-10 years ago (%)",
-            "Arrival not stated (%)"
-          ],
           "axis": {
             "title": "State",
             "labelFont": "Dubai",
+            "labelFontSize": 26,
             "titleFont": "Dubai",
-            "labelFontSize": 23,
-            "titleFontSize": 50
+            "titleFontSize": 34,
+            "labelLimit": 1000
           }
         },
         "color": {
@@ -85,9 +87,9 @@
           "legend": {
             "title": "Arrival Time",
             "titleFont": "Dubai",
+            "titleFontSize": 34,
             "labelFont": "Dubai",
-            "labelFontSize": 25,
-            "titleFontSize": 30,
+            "labelFontSize": 30,
             "labelLimit": 1000
           }
         },
@@ -106,8 +108,7 @@
           {
             "field": "Arrival Type",
             "type": "nominal",
-            "title": "Arrival Type",
-            "format": ""
+            "title": "Arrival Type"
           }
         ]
       }
@@ -117,13 +118,13 @@
         "type": "text",
         "color": "white",
         "font": "Dubai",
-        "fontSize": 15,
+        "fontSize": 26,
         "fontWeight": "bold",
         "xOffset": -40
       },
       "transform": [
         {
-          "filter": "datum['Arrival Type'] == 'Arrived within 5 years (%)' "
+          "filter": "datum['Arrival Type'] == 'Arrived within 5 years (%)'"
         }
       ],
       "encoding": {
@@ -137,29 +138,9 @@
           "type": "nominal"
         },
         "text": {
-          "field": "percentage",
-          "type": "quantitative",
-          "format": ".2f"
-        },
-        "tooltip": [
-          {
-            "field": "Label",
-            "type": "nominal",
-            "title": "State"
-          },
-          {
-            "field": "percentage",
-            "type": "quantitative",
-            "title": "Percentage",
-            "format": ".2f"
-          },
-          {
-            "field": "Arrival Type",
-            "type": "nominal",
-            "title": "Arrival Type",
-            "format": ""
-          }
-        ]
+          "field": "percentage_text",
+          "type": "nominal"
+        }
       }
     },
     {
@@ -167,13 +148,13 @@
         "type": "text",
         "color": "black",
         "font": "Dubai",
-        "fontSize": 15,
+        "fontSize": 26,
         "fontWeight": "bold",
-        "xOffset": -365
+        "xOffset": -480
       },
       "transform": [
         {
-          "filter": "datum['Arrival Type'] == 'Arrived over 10 years ago (%)' "
+          "filter": "datum['Arrival Type'] == 'Arrived over 10 years ago (%)'"
         }
       ],
       "encoding": {
@@ -187,29 +168,9 @@
           "type": "nominal"
         },
         "text": {
-          "field": "percentage",
-          "type": "quantitative",
-          "format": ".2f"
-        },
-        "tooltip": [
-          {
-            "field": "Label",
-            "type": "nominal",
-            "title": "State"
-          },
-          {
-            "field": "percentage",
-            "type": "quantitative",
-            "title": "Percentage",
-            "format": ".2f"
-          },
-          {
-            "field": "Arrival Type",
-            "type": "nominal",
-            "title": "Arrival Type",
-            "format": ""
-          }
-        ]
+          "field": "percentage_text",
+          "type": "nominal"
+        }
       }
     },
     {
@@ -217,13 +178,13 @@
         "type": "text",
         "color": "black",
         "font": "Dubai",
-        "fontSize": 15,
+        "fontSize": 26,
         "fontWeight": "bold",
-        "xOffset": -720
+        "xOffset": -900
       },
       "transform": [
         {
-          "filter": "datum['Arrival Type'] == 'Arrived 5-10 years ago (%)' "
+          "filter": "datum['Arrival Type'] == 'Arrived 5-10 years ago (%)'"
         }
       ],
       "encoding": {
@@ -237,29 +198,9 @@
           "type": "nominal"
         },
         "text": {
-          "field": "percentage",
-          "type": "quantitative",
-          "format": ".2f"
-        },
-        "tooltip": [
-          {
-            "field": "Label",
-            "type": "nominal",
-            "title": "State"
-          },
-          {
-            "field": "percentage",
-            "type": "quantitative",
-            "title": "Percentage",
-            "format": ".2f"
-          },
-          {
-            "field": "Arrival Type",
-            "type": "nominal",
-            "title": "Arrival Type",
-            "format": ""
-          }
-        ]
+          "field": "percentage_text",
+          "type": "nominal"
+        }
       }
     }
   ],

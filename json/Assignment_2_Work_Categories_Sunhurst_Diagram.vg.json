@@ -1,25 +1,30 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Employment Distribution in Australia",
+    "text": "How Migrants are Employed",
     "font": "Dubai",
     "fontWeight": "bold",
-    "fontSize": 40
+    "fontSize": 40,
+    "dy": -30
   },
-  "width": 1000,
-  "height": 1000,
+  "width": 50,
+  "height": 400,
   "layer": [
     {
       "data": {
-        "values": [
-          {"Category": "Employed (%)", "Percentage": 94.4},
-          {"Category": "Unemployed (%)", "Percentage": 5.6}
-        ]
+        "url": "https://raw.githubusercontent.com/jaidynarneill/Assignment-2-FIT3179/refs/heads/main/data/Assignment_2_Work_Categories_Sunhurst_Diagram.csv"
       },
+      "transform": [
+        {"filter": "datum.Year == year_selection"},
+        {
+          "fold": ["Employed (%)", "Unemployment rate (%)"],
+          "as": ["Category", "Percentage"]
+        }
+      ],
       "mark": {
         "type": "arc",
         "innerRadius": 0,
-        "outerRadius": 350,
+        "outerRadius": 250,
         "stroke": "white",
         "strokeWidth": 1
       },
@@ -33,10 +38,10 @@
           "field": "Category",
           "type": "nominal",
           "scale": {
-            "domain": ["Employed (%)", "Unemployed (%)"],
-            "range": ["#ffffbb", "black",  "#E1BEE7", "#BA68C8", "#4A148C", "#d9d9d9"]
+            "domain": ["Employed (%)", "Unemployment rate (%)"],
+            "range": ["#ffffbb", "black", "#E1BEE7", "#BA68C8", "#4A148C", "#d9d9d9"]
           },
-          "title": "Employment"
+          "title": ""
         },
         "tooltip": [
           {"field": "Category", "title": "Category"},
@@ -46,17 +51,19 @@
     },
     {
       "data": {
-        "values": [
-          {"Category": "Managers (%)", "Percentage": 23.3},
-          {"Category": "Professionals (%)", "Percentage": 32.4},
-          {"Category": "Technicians (%)", "Percentage": 27.4},
-          {"Category": "Community (%)", "Percentage": 11.3}
-        ]
+        "url": "https://raw.githubusercontent.com/jaidynarneill/Assignment-2-FIT3179/refs/heads/main/data/Assignment_2_Work_Categories_Sunhurst_Diagram.csv"
       },
+      "transform": [
+        {"filter": "datum.Year == year_selection"},
+        {
+          "fold": ["Managers (%)", "Professionals (%)", "Technicians (%)", "Community (%)"],
+          "as": ["Category", "Percentage"]
+        }
+      ],
       "mark": {
         "type": "arc",
-        "innerRadius": 350,
-        "outerRadius": 450,
+        "innerRadius": 250,
+        "outerRadius": 325,
         "stroke": "white",
         "strokeWidth": 1
       },
@@ -88,27 +95,27 @@
     },
     {
       "data": {
-        "values": [
-          {"Category": "Employed (%)", "Percentage": 94.4}
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "fontSize": 60,
-        "dy": 130,
-        "dx": 0
+        "url": "https://raw.githubusercontent.com/jaidynarneill/Assignment-2-FIT3179/refs/heads/main/data/Assignment_2_Work_Categories_Sunhurst_Diagram.csv"
       },
       "transform": [
+        {"filter": "datum.Year == year_selection"},
         {
-          "calculate": "datum.Percentage + ' %'",
+          "calculate": "datum['Employed (%)'] + ' % Employed'",
           "as": "textLabel"
         }
       ],
+      "mark": {
+        "type": "text",
+        "font": "Dubai",
+        "fontStyle":"bold",
+        "fontSize": 34,
+        "dy": 75,
+        "dx": 0
+      },
       "encoding": {
         "theta": {
-          "field": "Percentage",
-          "type": "quantitative",
-          "aggregate": "sum"
+          "field": "Employed (%)",
+          "type": "quantitative"
         },
         "text": {
           "field": "textLabel",
@@ -123,15 +130,31 @@
   "config": {
     "background": "#f5feff",
     "legend": {
-      "labelFontSize": 30,
+      "labelFontSize": 26,
       "titleFontSize": 30,
       "rowPadding": 15,
-      "titleLimit":1000,
-      "labelLimit":1000,
-      "offset":-100,
-      "symbolStrokeColor":"black",
-      "symbolStrokeWidth":2.5
+      "titleLimit": 1000,
+      "labelLimit": 1000,
+      "orient": "none",
+      "legendY": 385,
+      "legendX": -500,
+      "symbolSize": 375,
+      "symbolStrokeColor": "black",
+      "symbolStrokeWidth": 4,
+      "labelFont": "Dubai"
     }
-  }
+  },
+  "params": [
+    {
+      "name": "year_selection",
+      "value": 2021,
+      "bind": {
+        "input": "range",
+        "min": 2016,
+        "max": 2021,
+        "step": 5,
+        "name": "Year: "
+      }
+    }
+  ]
 }
-

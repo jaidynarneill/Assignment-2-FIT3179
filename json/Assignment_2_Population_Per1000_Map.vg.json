@@ -1,12 +1,14 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "",
+    "text": "Where Migrants are Situated",
     "font": "Dubai",
-    "fontSize": 40
+    "fontSize": 40,
+    "fontWeight": "bold",
+    "dy": -30
   },
-  "width": 1000,
-  "height": 800,
+  "width": 850,
+  "height": 700,
   "background": "#f5feff",
   "projection": {
     "type": "mercator"
@@ -20,11 +22,20 @@
       "lookup": "properties.name",
       "from": {
         "data": {
-          "url": "https://raw.githubusercontent.com/jaidynarneill/Assignment-2-FIT3179/refs/heads/main/data/Assignment_2_Population_Per1000_Map.csv"
+          "url": "https://raw.githubusercontent.com/jaidynarneill/Assignment-2-FIT3179/refs/heads/main/data/Assignment_2_Population_Per1000_Map.csv",
+          "format": { "type": "csv" }
         },
         "key": "States",
-        "fields": ["Immigrants Per 1000 People"]
+        "fields": [
+          "Immigrants Per 1000 (2016)",
+          "Immigrants Per 1000 (2021)",
+          "Immigrants Per 1000 (5 Year Change)"
+        ]
       }
+    },
+    {
+      "calculate": "year_selection === 2021 ? datum['Immigrants Per 1000 (2021)'] : datum['Immigrants Per 1000 (2016)']",
+      "as": "Immigrants Per 1000"
     }
   ],
   "layer": [
@@ -36,30 +47,26 @@
       },
       "encoding": {
         "color": {
-          "field": "Immigrants Per 1000 People",
+          "field": "Immigrants Per 1000",
           "type": "quantitative",
           "scale": {
-            "type": "threshold",
-            "domain": [150, 200, 250, 300, 350],
-            "range": ["#e0b3f0", "#d58ff2", "#b77bdb", "#9b5bb4", "#7b3f8e"]
+            "domain": [150, 175, 200, 225, 250, 275, 300, 325],
+            "range": ["#ffffff", "#e0b3f0", "#d58ff2", "#b77bdb", "#9b5bb4", "#7b3f8e", "#5b2b68", "#3d1e45"]
           },
           "legend": {
-            "title": "Immigrants Per 1000 People",
+            "title": "Migrants Per 1000 People",
             "titleFont": "Dubai",
-            "titleFontSize": 28,
+            "titleFontSize": 34,
             "labelFont": "Dubai",
-            "labelFontSize": 25,
-            "labelFontWeight": "normal",
-            "orient": "bottom-left", 
-            "padding": 0,
+            "labelFontSize": 30,
+            "orient": "bottom-left",
+            "gradientLength": 500,
+            "gradientThickness": 30,
+            "values": [150, 200, 250, 300],
+            "titleLimit": 1000,
             "labelLimit": 200,
-            "labelOffset": 5,
-            "gradientLength": 200,
-            "gradientThickness": 20,
             "gradientStrokeColor": "#000",
-            "gradientStrokeWidth": 1,
-            "offset": -10,  
-            "titleLimit": 1000
+            "gradientStrokeWidth": 1
           }
         },
         "tooltip": [
@@ -69,9 +76,19 @@
             "title": "State"
           },
           {
-            "field": "Immigrants Per 1000 People",
+            "field": "Immigrants Per 1000 (2016)",
             "type": "quantitative",
-            "title": "Immigrants Per 1000 People"
+            "title": "Immigrants Per 1000 (2016)"
+          },
+          {
+            "field": "Immigrants Per 1000 (2021)",
+            "type": "quantitative",
+            "title": "Immigrants Per 1000 (2021)"
+          },
+          {
+            "field": "Immigrants Per 1000 (5 Year Change)",
+            "type": "quantitative",
+            "title": "5 Year Change"
           }
         ]
       }
@@ -82,6 +99,19 @@
         "format": { "type": "topojson", "feature": "ne_110m_graticules_30" }
       },
       "mark": { "type": "geoshape", "stroke": "#000", "strokeWidth": 0.5 }
+    }
+  ],
+  "params": [
+    {
+      "name": "year_selection",
+      "value": 2021,
+      "bind": {
+        "input": "range",
+        "min": 2016,
+        "max": 2021,
+        "step": 5,
+        "name": "Year: "
+      }
     }
   ]
 }
